@@ -28,7 +28,7 @@ results = parse_args()
 #lets split our string directly from the results variable
 split_infix_string = results.infix_string
 
-print 'infix stringzee to be proccessed: ',split_infix_string
+#print 'infix stringzee to be proccessed: ',split_infix_string
 #test our infix string out
 #print split_infix_string
 operatorStack = Stack()
@@ -36,16 +36,16 @@ operandStack = Stack()
 
 
 for token in split_infix_string:
-    print "First Token thru: ",token,"\n"
+    #print "First Token thru: ",token,"\n"
     if token.isalpha() or token in ['+','-','/','*',')','(']:
         if token.isalpha():
             operandStack.push(token)
-            print 'Pushing Operand:',token,"\n"
+            #print 'Pushing Operand:',token,"\n"
         elif token == '(' or operatorStack.is_empty() or (prec[token] >= prec[operatorStack.peek()]):
-                print 'pushing token: ', token, "\n"
+                #print 'pushing token: ', token, "\n"
                 operatorStack.push(token)
         elif token == ')':
-            print 'right paren found'
+            #print 'right paren found'
             while(operatorStack.peek() != '('):
                 operator = operatorStack.pop()
                 right = operandStack.pop()
